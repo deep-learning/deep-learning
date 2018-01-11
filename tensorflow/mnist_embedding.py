@@ -13,3 +13,4 @@ plot_array = mnist.test.images[:IMAGE_NUM]
 # generate meta data
 np.savetxt(np.os.path.join(LOG_DIR, 'meta.tsv'), mnist.test.labels[:IMAGE_NUM])
 
+PATH_TO_SPRITE_IMAGE = .path
