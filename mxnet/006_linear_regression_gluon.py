@@ -76,6 +76,7 @@ plt.xlabel('epoch',fontsize=14)
 plt.ylabel('average loss',fontsize=14)
 plt.show()
 
+# ParameterDict
 params = net.collect_params()
 for param in params.values():
     print(param.name, param.data())
