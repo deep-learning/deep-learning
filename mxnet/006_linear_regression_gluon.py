@@ -24,6 +24,8 @@ train_data = gluon.data.DataLoader(gluon.data.ArrayDataset(X, y),
                                    batch_size=batch_size, shuffle=True)
 
 # net = gluon.nn.Dense(units=1, in_units=2)
+# net = gluon.nn.Sequential()
+# net.add(gluon.nn.Dense(1))
 net = gluon.nn.Dense(1)
 
 print(net.weight)
@@ -34,6 +36,7 @@ print(type(net.collect_params()))
 # Deferred Initialization
 # the actual initialization is deferred until we make a first forward pass
 net.collect_params().initialize(mx.init.Normal(sigma=1.), ctx=model_ctx)
+# net.initialize()
 
 example_data = nd.array([[4, 7]])
 print(net(example_data))
@@ -75,6 +78,11 @@ plt.grid(True, which="both")
 plt.xlabel('epoch',fontsize=14)
 plt.ylabel('average loss',fontsize=14)
 plt.show()
+
+
+# dense = net[0]
+# dense.weight.data()
+# dense.bias.data()
 
 # ParameterDict
 params = net.collect_params()
